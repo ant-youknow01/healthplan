@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Fit Meal Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3f3;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tab-button {
+            padding: 0.75rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #fce4ec;
+            color: #d12c6a;
+            border: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .tab-button.active {
+            background-color: #d12c6a;
+            color: white;
+            box-shadow: 0 4px 8px rgba(209, 44, 106, 0.4);
+            transform: translateY(-2px);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h1 {
+            color: #d12c6a;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #d12c6a;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background-color: #fce4ec;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        li strong {
+            color: #a32c5e;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        ol {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        ol li {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            margin-bottom: 0.25rem;
+            transition: none;
+        }
+        ol li:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            .tab-button {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto mt-8 p-8 rounded-lg shadow-xl">
+    <header>
+        <h1 class="text-4xl font-bold mb-2">Live Fit Meal Plan</h1>
+        <p class="text-center text-gray-600 mb-8">An 8-Week Transformation Challenge</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'Breakfast')">Breakfast</button>
+        <button class="tab-button" onclick="openTab(event, 'Lunch')">Lunch</button>
+        <button class="tab-button" onclick="openTab(event, 'Dinner')">Dinner</button>
+    </div>
+
+    <!-- Breakfast Content -->
+    <div id="Breakfast" class="tab-content active">
+        <h2>Breakfast</h2>
+        <ul>
+            <li>
+                <strong>Week 1</strong>
+                <ol>
+                    <li><strong>1. Spinach & Feta Omelette:</strong> 2 Eggs, 30g Feta Cheese, 1 Handful fresh Spinach.</li><br>
+                    <li><strong>2. Nut Butter & Berry Rice Cakes:</strong> 4 Rice / Corn Cakes, 2 Tbsp Peanut / Almond Butter, 100g Mixed Berries.</li><br>
+                    <li><strong>3. Protein Smoothie:</strong> 1 Scoop Jenna Carmen Shake, 1 Cup Ice, 250ml Plant-based or Fat Free Milk & 1tbsp Peanut butter.</li><br>
+                    <li><strong>4. Crackerbread Please:</strong> 3-4 Crackerbread, Marmite, Lightly Buttered.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 2</strong>
+                <ol>
+                    <li><strong>1. Tropical Smoothie Bowl:</strong> 150g Fat Free yogurt, 80g Pineapple, 80g Blueberries.</li><br>
+                    <li><strong>2. Egg Please:</strong> 2 Lrg Egg, 2 Tbsp Fat Free Cottage Cheese, Spring Onion, 30g Avocado, 3-4 Rice Cakes.</li><br>
+                    <li><strong>3. Egg White Omelette:</strong> 3 Egg whites, 80g Chicken (Weigh Cooked), Tomato & Onion, 80g Mushrooms.</li><br>
+                    <li><strong>4. Jenna Carmen Flapjacks:</strong> 3 Jenna Carmen Flapjacks With Honey & 150g Mixed Berries.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 3</strong>
+                <ol>
+                    <li><strong>1. Jenna Carmen Flapjacks:</strong> 3 Jenna Carmen Flapjacks With Honey & 80g Strawberries.</li>
+                    <li><strong>2. Eggs & Bacon Please:</strong> 2 Eggs (Boiled / Fried), Tomato & Mushroom, 2 Slices Lean Bacon (Cut Off Fat).</li>
+                    <li><strong>3. Peanut Butter & Honey Rice Cakes:</strong> 3-4 Rice Cakes, 30g Peanut Butter, Drizzle of Honey.</li>
+                    <li><strong>4. Breakfast Wrap:</strong> 2 Eggs Scrambled, 20g Cheddar Cheese, 60g Avo Diced, 1 Vegetable or Low Carb Wrap, $1/2$ Tomato Diced, Baby Spinach leaves.</li>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 4</strong>
+                <ol>
+                    <li><strong>1. Jenna Carmen Flapjacks:</strong> 3 Jenna Carmen Flapjacks With Honey & 30g Peanut Butter.</li>
+                    <li><strong>2. Tomato & Cheese Omelette:</strong> 3 Eggs, 30g Mozzarella Cheese, 1/4 Tomato Diced, Chopped Onion.</li>
+                    <li><strong>3. Protein Smoothie:</strong> 1 Scoop Jenna Carmen Shake, 1 Cup Ice, 250ml Plant-based or Fat Free Milk & 1tbsp Peanut butter.</li>
+                    <li><strong>4. Crackerbread Please:</strong> 3-4 Crackerbread, 2 Boiled eggs, Lightly Buttered.</li>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 5</strong>
+                <ol>
+                    <li><strong>1. Jenna Carmen Flapjacks:</strong> 3 Jenna Carmen Flapjacks, 20g Peanut / Almond Butter, Drizzle With Honey, 5 almonds.</li><br>
+                    <li><strong>2. Protein Smoothle:</strong> 1 Scoop Jenna Carmen Shake, 1 Cup Ice, 250ml Plant-based or Fat Free Milk & 1Tbsp Peanut butter.</li><br>
+                    <li><strong>3. Breakfast Wrap:</strong> 2 Eggs Scrambled, 20g Cheddar Cheese, 50g Avocado Diced, 1 Vegetable or Low Carb Wrap, 1/2 Tomato Diced, Baby Spinach leaves.</li><br>
+                    <li><strong>4. Yogurt Bowl:</strong> 175ml Plain Full Cream Yogurt, Drizzle Honey, 150g Blueberries, 6 Almonds.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 6</strong>
+                <ol>
+                    <li><strong>1. Avocado on Rice Cakes:</strong> 2-3 Rice Cakes, Haif a Avocado.</li><br>
+                    <li><strong>2. Scrambled Eggs:</strong> 3-4 Provitas, 3 Scrambled Eggs.</li><br>
+                    <li><strong>3. Blueberry Protein Oats Please:</strong> 35g-40g Oats (Weigh Raw), 1 Scoop Jenna Carmen Protein Shake, 100g Blueberries, 5 Almonds.</li><br>
+                    <li><strong>4. Jenna Carmen Flapjacks:</strong> 3 Jenna Carmen Flapjacks With Drizzle Honey & 1 Tbsp Peanut Butter, 4 Almonds.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 7</strong>
+                <ol>
+                    <li><strong>1. Peanut Butter Crackerbread:</strong> 3-4 Crackerbread, 30g Peanut Butter.</li><br>
+                    <li><strong>2. Berry & Yogurt Parfait:</strong> 150ml Low Fat Yogurt, 150g Fresh Mixed Berries.</li><br>
+                    <li><strong>3. Protein Smoothie:</strong> 1 Scoop Jenna Carmen Shake, 1 Cup Ice, 250ml Plant-based or Fat Free Milk & 1tbsp Peanut butter, 80g Mixed Berries.</li><br>
+                    <li><strong>4. Egg White Omelette Please:</strong> 3-4 Egg Whites, Tomato & Onion, 80g Chicken (Weigh Cooked), 60g Avocado.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 8</strong>
+                <ol>
+                    <li><strong>1. Jenna Carmen Flapjacks:</strong> 3 Jenna Carmen Flapjacks With Honey & 80g Strawberries/ Blueberries.</li><br>
+                    <li><strong>2. Eggs Please:</strong> 2 Fried / Poached Eggs, 80g Avocado, Tomatoes, Mushrooms & Onion.</li><br>
+                    <li><strong>3. Tomato & Mozzarella Rice Cakes:</strong> 2-4 Rice Cakes, 3-4 Slices Tomato, 35g Mozzarella.</li><br>
+                    <li><strong>4. Breakfast Wrap:</strong> 30g Cheddar Cheese, 60g Avo Diced, 1 Vegetable or Low Carb Wrap, $1/2$ Tomato Diced, Baby Spinach leaves.</li><br>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Lunch Content -->
+    <div id="Lunch" class="tab-content">
+        <h2>Lunch</h2>
+        <ul>
+            <li>
+                <strong>Week 1</strong>
+                <ol>
+                    <li><strong>1. Chicken & Portobello Mushroom:</strong> 1 Portobello Mushroom, 150g Chicken, Green Side Salad, Tomato & Cucumber.</li><br>
+                    <li><strong>2. Soup please:</strong> 300ml Country Vegetable Soup.</li><br>
+                    <li><strong>3. Chicken Dish:</strong> 150g Chicken (Weigh Cooked), 150g Asparagus/ Broccoli, 150g Cauliflower Rice (Weigh Raw).</li><br>
+                    <li><strong>4. Lentil & Avo Salad:</strong> 100g Lentils (Cooked/Canned), 100g Avo (Diced), 75g Cherry Tomatoes, 30g Red Onion, Mixed Green Salad, Lime Vinaigrette.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 2</strong>
+                <ol>
+                    <li><strong>1. Chicken & Rice:</strong> 150g Chicken (Weigh Cooked), 150g Cauliflower Rice (Weigh Raw), 50g Spinach, 150g Roasted Butternut Squash, 75g Cherry Tomatoes.</li><br>
+                    <li><strong>2. Mushroom Pasta Dish:</strong> 150g-200g Cauliflower Pasta (Weigh raw), 1tbsp Pesto, 150g Mushrooms, 30g Feta.</li><br>
+                    <li><strong>3. Steak Strips & Noodle Salad:</strong> 150g Lean Beef (Weigh Cooked), 150g Cauliflower Noodles (Weigh Raw), 30g Feta Cheese, Handful of Lettuce, 1 tbsp Pesto.</li><br>
+                    <li><strong>4. Chickpea & Spinach Wrap:</strong> 1 Low Carb / Vegetable Wrap, 100g Chickpeas (Canned), 50g Spinach Leaves, 50g Diced Tomato, 2 Tbsp Fat Free Cottage Cheese.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 3</strong>
+                <ol>
+                    <li><strong>1. Soup Please:</strong> 300ml Tomato Soup.</li><br>
+                    <li><strong>2. Lentils & Veg Bowl:</strong> 150g Lentils (Canned), 150g Cauliflower Rice (Weigh Raw), 100g Zucchini, 100g Beetroot (optional).</li><br>
+                    <li><strong>3. Chicken Salad Bowl:</strong> 150g Chicken (Weigh Cooked), 100g Mixed Greens, 60g Avocado, 1 Boiled Egg, 2-3 Provitas.</li><br>
+                    <li><strong>4. Steak & Pasta:</strong> 140g Lean Steak (Weigh Cooked), 160g Cauliflower Pasta (Weigh Raw), 1 Tbsp Pesto, 100g Mixed Greens Salad.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 4</strong>
+                <ol>
+                    <li><strong>1. Tuna Rice Salad:</strong> 80g Canned Tuna, 150g Cauliflower Rice (Weigh Raw), 50g Spinach, 60g Avocado, 75g Tomato, Lime juice & Spice as needed.</li><br>
+                    <li><strong>2. Pesto Pasta:</strong> 150g Cauliflower Pasta (Weigh Raw), 1 Tbsp Pesto, 20g Fine Parmesan, Handful Chopped Basil.</li><br>
+                    <li><strong>3. Beetroot & Chickpea Salad:</strong> 100g Cooked Beetroot, 120g Chickpeas (Tinned), 100g Mixed Greens, 30g Feta Cheese, 15ml Lemon Juice.</li><br>
+                    <li><strong>4. Chicken Dish:</strong> 150g Grilled Chicken (Weigh Cooked), Kale, 150g Sweet Potato, 200g Mix Veggies of Choice.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 5</strong>
+                <ol>
+                    <li><strong>1. Chicken & Hummus Bowl:</strong> 120g Chicken (Weigh Cooked), 2-3Tbsp Hummus, Cucumber, 75g Cherry Tomatoes, 3-4 Provitas.</li><br>
+                    <li><strong>2. Soup please:</strong> 300ml Beef & Lentil Soup.</li><br>
+                    <li><strong>3. Fish & Green Bowl:</strong> 150g White Fish (Weigh Cooked), 150g Cauliflower Rice (Weigh Raw), Mixed Greens, 60g Avocado, Lemon Juice.</li><br>
+                    <li><strong>4. Spinach & Feta Stuffed Chicken:</strong> 150g Chicken Breast (Weigh Cooked), Spinach, 30g Feta Cheese, Served with 150g Roasted Butternut.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 6</strong>
+                <ol>
+                    <li><strong>1. Mince Pasta:</strong> 200g Tomato & Onion Mix (Canned), 150g Extra Lean Mince (Weigh Cooked), 150g Zucchini Noodles (Weigh Raw).</li><br>
+                    <li><strong>2. Salad Wrap:</strong> 1 Vegetable/Low Carb Wrap, 1-2 Tablespoons Hummus, Mixed Green Salad, Tomato & Onion.</li><br>
+                    <li><strong>3. Chicken Salad Bowl:</strong> 150g Chicken (Weigh Cooked), 100g Mixed Greens, 60g Avocado, 1 Boiled Egg, 2-3 Provitas.</li><br>
+                    <li><strong>4. Chickpea & Spinach Wrap:</strong> 1 Low Carb / Vegetable Wrap, 120g Chickpeas (Tinned), 50g Spinach Leaves, 50g Diced Tomato, 2 Tbsp Fat Free Cottage Cheese.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 7</strong>
+                <ol>
+                    <li><strong>1. Chicken Low Carb Wrap:</strong> 150g Chicken (Weigh Cooked), 1 Low Carb Wrap, 1 Tbsp Hummus, Mixed Green Salad.</li><br>
+                    <li><strong>2. Egg Salad Bowl:</strong> 2 Boiled Eggs, Mixed Greens, 60g Avocado, 2-3 Provitas.</li><br>
+                    <li><strong>3. Grilled Steak Salad:</strong> 150g Grilled steak (Weigh Cooked), Mixed Greens, 100g Roast Sweet Potato Chunks, 30g Crumbled Feta.</li><br>
+                    <li><strong>4. Lentil & Avo Salad:</strong> 100g Lentils (Cooked), 100g Avo (Diced), 75g Cherry Tomatoes, 30g Red Onion, Lime Vinaigrette.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 8</strong>
+                <ol>
+                    <li><strong>1. Soup Please:</strong> 300ml Butternut Or Vegetable Or Minestrone Soup.</li><br>
+                    <li><strong>2. Corn & Black Bean Salad:</strong> 80g Corn Kernels, 120g Black Beans (Tinned), 120g Red Kidney Beans (Tinned), Red Onion, Diced Bell peppers, 30ml Lime Juice.</li><br>
+                    <li><strong>3. Cheese Wrap:</strong> 30g Cheese of your Choice, 1/2 Zucchini (Optional), Mixed Bell Peppers, Lettuce & Cucumber, 1Tbsp Hummus, 1 Vegetable Wrap.</li><br>
+                    <li><strong>4. Chicken & Apple Salad:</strong> 150g Chicken Breast (Weight Cooked), 60g Diced Apple, 100g Mixed Greens, 30g Walnuts, Balsamic Vinegar.</li><br>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Dinner Content -->
+    <div id="Dinner" class="tab-content">
+        <h2>Dinner</h2>
+        <ul>
+            <li>
+                <strong>Week 1</strong>
+                <ol>
+                    <li><strong>1. Lean Beef & Couscous Salad:</strong> 150g Lean Beef (Weigh Cooked), 150g Corn & Peas, 150g Cauliflower Rice (Weigh Raw), Handful Baby Spinach Leaves.</li><br>
+                    <li><strong>2. Pork & Sweet Potato:</strong> 100-150g Lean Pork (Weigh Cooked), 150g Sweet Potato (Baked), 100g Steamed Green beans.</li><br>
+                    <li><strong>3. Black Beans & Baked Sweet Potato:</strong> 1 Med Baked Sweet Potato, 120g Black Beans (Weigh cooked), 1 Tbsp Hummus.</li><br>
+                    <li><strong>4. Tofu & Mix Veggie Stir Fry:</strong> 150g Tofu/Chicken (Weigh Cooked), 160g Zucchini Noodles (Weigh Raw), 200g Mixed Veggies of Choice, 1-2 Tablespoons Soya Sauce.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 2</strong>
+                <ol>
+                    <li><strong>1. Butternut Soup:</strong> 200-300ml Butternut Soup, 1-2 Crackerbread.</li><br>
+                    <li><strong>2. Stuffed Gem Squash:</strong> 1 Gem Squash, 150g Cauliflower Rice (Weigh Raw), 80g Extra Lean Mince (Weigh Cooked), 30g Feta Cheese.</li><br>
+                    <li><strong>3. Chicken & Avocado Salad:</strong> 150g Spiced Chicken (Weigh cooked), 100g Mixed Greens Salad, 50g Avocado, Side Salad (Baby Spinach, 50g Tomatoes), 4-6 Provitas, Balsamic Vinegar.</li><br>
+                    <li><strong>4. Grilled Fish Salad:</strong> 150g Grilled Fish Fillet (Weigh Cooked), Spinach Leaves, Rocket Leaves, 75g Roasted Tomato, 15ml Balsamic Vinegar dressing.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 3</strong>
+                <ol>
+                    <li><strong>1. Burger Please:</strong> 1x Vegetarian Patty, 2x Large Mushrooms (Portobello).</li><br>
+                    <li><strong>2. Sweet Potato With Cottage Cheese:</strong> 1 Medium/Large Sweet Potato, 2 Tbsp Fat Free Cottage Cheese. You may add 80g Avocado.</li><br>
+                    <li><strong>3. Baked Fish & Sweet Potato:</strong> 150g Sweet Potato, 150g White Fish Fillet (Weight Cooked), 100g Steamed Green Beans.</li><br>
+                    <li><strong>4. Baked Butternut:</strong> Half Med Baked Butternut Stuffed With 120g Extra Lean Mince (Weigh Cooked). You may add 2Tbsp Fat Free Cottage Cheese.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 4</strong>
+                <ol>
+                    <li><strong>1. Soup Please!:</strong> 300ml Minestrone Soup.</li><br>
+                    <li><strong>2. Lentil Stew & Sweet Potato:</strong> 120g Lentil (Weigh Cooked), 150g Sweet Potato, 100g Mix Veggies of Choice. You may add 140g Cauliflower Rice (Weigh Raw).</li><br>
+                    <li><strong>3. Beef Stir Fry:</strong> 150g Lean Beef Strips (Weigh cooked), 150g Cauliflower Rice/Noodles (Weight Raw), 50g Bell Peppers, 100g Mixed Veggies, 200g Tomato & Onion mIX (canned).</li><br>
+                    <li><strong>4. Prawns & Braccoli Pasta:</strong> 150g Pawns (Weigh Cooked), 150g-200g Cauliflower Pasta (Weigh Raw), 100g Broccoll, 1 Tablespoon Pesto.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 5</strong>
+                <ol>
+                    <li><strong>1. Chicken, Lentil & Avocado Salad:</strong> 150g Grilled Chicken (Weigh Cooked), 120g Lentils (Cooked/Canned), 50g Avocado, Mixed Greens.</li><br>
+                    <li><strong>2. Tolu & Sweet Potato Stir Fry!:</strong> 150g Tofu (Weigh Cooked), 150g Sweet potato Chunks, 200g Mixed Veggies of Choice, Low Sodium Soya Sauce.</li><br>
+                    <li><strong>3. Beef & Veggie Skewers:</strong> 150g Beef Cubes, 180g Mixed Veggies, Served with a side of 150g Zucchini Noodles (Weigh Raw) Optional.</li><br>
+                    <li><strong>4. Pasta Primavera:</strong> 150-200g Cauliflower Pasta (Weigh Raw), 200g Mixed Vegetables, 1 Tbsp Olive oil, 200g Tomato Mix (Canned).</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 6</strong>
+                <ol>
+                    <li><strong>1. Butternut Soup:</strong> 300ml Butternut Soup.</li><br>
+                    <li><strong>2. Stuffed Gem Squash:</strong> 1 Gem Squash, 45g Quinoa (Weigh Raw), 120g Lentils (Canned), 30g Feta Cheese, Side Salad (Spinach, 50g Tomatoes), Balsamic Vinegar.</li><br>
+                    <li><strong>3. Chicken, Roasted Carrots & Rice:</strong> 150g Chicken (Weigh cooked), 150g Cauliflower Rice (Weigh Raw), 150g Carrots/Green Beans/Broccoli, 30g Feta Cheese.</li><br>
+                    <li><strong>4. Chicken Pasta Pesto:</strong> 150g Cauliflower Pasta (Weigh Raw), 150g Chicken (Weigh Cooked), 1 Tablespoon Pesto, 100g Cherry tomatoes, 20g Parmesan Cheese.</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 7</strong>
+                <ol>
+                    <li><strong>1. Steak, Roasted Asparagus & Rice:</strong> 150g Lean Beef Steak (Weight Cooked), 150g Cauliflower Rice (weight Raw), 100g Asparagus (Grilled/Steamed).</li><br>
+                    <li><strong>2. Pork, Veg & Sweet Potato:</strong> 150g Lean Pork (Weigh Cooked), 150g Sweet Potato / Butternut (Baked), 100g Steamed Mixed Greens.</li><br>
+                    <li><strong>3. Veggie Pasta Salad:</strong> 150-200g Cauliflower Pasta (Weight raw), 50g Cherry Tomatoes, Cucumber, 50g Bell Peppers, 1 Tablespoon Pesto, 30g Cheese of your Choice.</li><br>
+                    <li><strong>4. Spaghetti & Mince Pasta:</strong> 150g Lean Beef Mince (Weigh Cooked), 150g Cauliflower Noodles (Weigh Raw), 150g Tomato & Onion Mix (Canned), 80g Lentils (Canned / Cooked).</li><br>
+                </ol>
+            </li>
+            <li>
+                <strong>Week 8</strong>
+                <ol>
+                    <li><strong>1. Noodles & Tomato Basil Sauce:</strong> 150-200g Cauliflower Noodles (Weigh Raw), 150g Tomato Basil Sauce, 30g Grated Parmesan.</li><br>
+                    <li><strong>2. Chicken & Spinach Salad:</strong> 150g Chicken (Weigh Cooked), 150g Cauliflower Rice (Weigh Raw), 100g Spinach, Mixed Green Salad. You may add 60g Avocado.</li><br>
+                    <li><strong>3. Baked Chicken & Sweet Potato:</strong> 150g Sweet Potato, 150g Chicken (Weight Cooked), 100g Green Beans/ Zucchini.</li><br>
+                    <li><strong>4. Steak, Mushrooms & Rice:</strong> 150g Lean Beef (Weigh Cooked), 150g Cauliflower Rice, 100g Grilled Mushrooms, Mixed Green Salad.</li><br>
+                </ol>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, mealName) {
+        let i, tabcontent, tabbuttons;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tabbuttons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabbuttons.length; i++) {
+            tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+        }
+        document.getElementById(mealName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Set the first tab as active on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector(".tab-button").click();
+    });
+</script>
+
+</body>
+</html>
